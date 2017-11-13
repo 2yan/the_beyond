@@ -17,17 +17,17 @@ It also does useful things like convert your output back into text.
 sentence_length = 10 
 
 >text = 'the sweet text to be trained on  '  
-ww = WordsWorth(text)  
-X, y = ww.get_sentences(letters)  
+worth = WordsWorth(text)  
+X, y = worth.get_sentences(letters)  
 model.train(X, y)  
 
 Then to generate seed data for your rnn, you would do the following: 
 
-> seed_text = ww.generate_seed('seed text', letters)  
+> seed_text = worth.generate_seed('seed text', letters)  
 prediction = model.predict(seed_text)
 
 Observing the results is as easy as: 
->ww.one_hot_to_text(prediction)
+>worth.one_hot_to_text(prediction)
 
 
 
@@ -36,8 +36,11 @@ This how many letters your char-rnn will look at at a time, greater values indic
 Finally, 'model' over here refers to whatever neural network model you're using. 
 
 #### Help I'm stuck ( and have Keras ):
-import keras as kr
+If you're having a bunch of trouble with stuff not not matching up ( I know, I was confused by the extra dimensionality)
 
+Then this example might help:
+
+import keras as kr
 >def generate_model(X, y):
 
     model = kr.models.Sequential()
