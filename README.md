@@ -38,14 +38,16 @@ Finally, 'model' over here refers to whatever neural network model you're using.
 #### Help I'm stuck ( and have Keras ):
 import keras as kr
 
-def model(X, y):
->     model = kr.models.Sequential()
-      model.add(kr.layers.LSTM(128, input_shape=X.shape[1:]))  
-      model.add(kr.layers.Dense(X.shape[1]))  
-      model.add(kr.layers.Activation('softmax'))  
-      optimizer = kr.optimizers.Adam(lr=0.01)  
-      model.compile(loss='categorical_crossentropy', optimizer=optimizer)  
-      return model
+>def generate_model(X, y):
+
+    model = kr.models.Sequential()
+    model.add(kr.layers.LSTM(128, input_shape=X.shape[1:]))
+    model.add(kr.layers.Dense(X.shape[1]))
+    model.add(kr.layers.Activation('softmax'))
+    optimizer = kr.optimizers.Adam(lr=0.01)
+    model.compile(loss='categorical_crossentropy', optimizer=optimizer)
+    return model
+
 
 
 
