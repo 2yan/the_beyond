@@ -28,7 +28,7 @@ class WordsWorth():
             s.id_to_one_hot[key] = one_hot
             s.char_to_one_hot[char] = one_hot
 
-        s.one_hot = np.zeros((len(text), len(unique)))
+        s.one_hot = np.zeros((len(text), len(unique)), dtype = np.bool )
         i = 0
         for char in text:
             s.one_hot[i, s.char_to_id[char]] = 1
@@ -42,7 +42,7 @@ class WordsWorth():
             X.append(s.one_hot[num:num + letters] )
             y.append(s.one_hot[num + letters])
 
-        return np.array(X), np.array(y)
+        return np.array(X, dtype= np.bool), np.array(y,dtype= np.bool)
 
     def generate_seed(s, seed_text, letters):
 
