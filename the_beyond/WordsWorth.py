@@ -47,9 +47,18 @@ class WordsWorth():
     def generate_seed(s, seed_text, letters):
 
         final = []
+
+        if len(seed_text) > letters:
+            seed_text = seed_text[-letters]
+        if len(seed_text) < letters:
+            difference = letters - len(seed_text)
+            for num in range(0, difference):
+                final.append(np.zeros(len(s.char_to_one_hot)))
+
         for letter in seed_text:
             final.append(s.char_to_one_hot[letter])
         final = [final]
+
         return np.array(final)
 
     def __pred_to_text(s, result):
