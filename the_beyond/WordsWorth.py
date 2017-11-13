@@ -49,7 +49,7 @@ class WordsWorth():
         final = []
 
         if len(seed_text) > letters:
-            seed_text = seed_text[-letters]
+            seed_text = seed_text[-letters:]
         if len(seed_text) < letters:
             difference = letters - len(seed_text)
             for num in range(0, difference):
