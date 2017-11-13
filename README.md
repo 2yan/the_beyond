@@ -17,17 +17,17 @@ It also does useful things like convert your output back into text.
 sentence_length = 10 
 
 >text = 'the sweet text to be trained on  '  
-ww = WordsWorth(text)  
-X, y = ww.get_sentences(letters)  
+worth = WordsWorth(text)  
+X, y = worth.get_sentences(letters)  
 model.train(X, y)  
 
 Then to generate seed data for your rnn, you would do the following: 
 
-> seed_text = ww.generate_seed('seed text', letters)  
+> seed_text = worth.generate_seed('seed text', letters)  
 prediction = model.predict(seed_text)
 
 Observing the results is as easy as: 
->ww.one_hot_to_text(prediction)
+>worth.one_hot_to_text(prediction)
 
 
 
