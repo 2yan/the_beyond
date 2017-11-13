@@ -36,8 +36,11 @@ This how many letters your char-rnn will look at at a time, greater values indic
 Finally, 'model' over here refers to whatever neural network model you're using. 
 
 #### Help I'm stuck ( and have Keras ):
-import keras as kr
+If you're having a bunch of trouble with stuff not not matching up ( I know, I was confused by the extra dimensionality)
 
+Then this example might help:
+
+import keras as kr
 >def generate_model(X, y):
 
     model = kr.models.Sequential()
